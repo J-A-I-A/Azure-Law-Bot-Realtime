@@ -13,7 +13,7 @@ _search_tool_schema = {
         "properties": {
             "query": {
                 "type": "string",
-                "description": "Search query"
+                "description": "Detailed Search query of what information is needed. This should be a detailed query that is relevant to the user's question."
             }
         },
         "required": ["query"],
