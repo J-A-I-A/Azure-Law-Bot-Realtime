@@ -177,7 +177,7 @@ class RTMiddleTier:
         return updated_message
 
     async def _forward_messages(self, ws: web.WebSocketResponse):
-        async with aiohttp.ClientSession(base_url=self.endpoint) as session:
+        async with aiohttp.ClientSession(base_url=self.endpoint,trust_env=True) as session:
             params = { "api-version": self.api_version, "deployment": self.deployment}
             headers = {}
             if "x-ms-client-request-id" in ws.headers:
