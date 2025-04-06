@@ -73,9 +73,6 @@ class RTMiddleTier:
             logger.info("Realtime voice choice set to %s", voice_choice)
         if isinstance(credentials, AzureKeyCredential):
             self.key = credentials.key
-        else:
-            self._token_provider = get_bearer_token_provider(credentials, "https://cognitiveservices.azure.com/.default")
-            self._token_provider() # Warm up during startup so we have a token cached when the first request arrives
 
     async def _process_message_to_client(self, msg: str, client_ws: web.WebSocketResponse, server_ws: web.WebSocketResponse) -> Optional[str]:
         message = json.loads(msg.data)

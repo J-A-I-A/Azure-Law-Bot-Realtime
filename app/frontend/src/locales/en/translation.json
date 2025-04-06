@@ -1,13 +1,13 @@
 {
     "app": {
-        "title": "Talk to your data",
-        "footer": "Built with Azure AI Search + Azure OpenAI",
+        "title": "Talk about Jamaican Laws",
+        "footer": "Jamaican Laws + Azure OpenAI",
         "stopRecording": "Stop recording",
         "startRecording": "Start recording",
         "stopConversation": "Stop conversation"
     },
     "status": {
-        "notRecordingMessage": "Ask anything about Contoso employee benefits",
+        "notRecordingMessage": "Ask anything about Jamaican Laws",
         "conversationInProgress": "Conversation in progress"
     },
     "history": {
