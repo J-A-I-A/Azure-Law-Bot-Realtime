@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 
 from ragtools import attach_rag_tools
 from rtmt import RTMiddleTier
+from azure.core.credentials import AzureKeyCredential
+from azure.identity import DefaultAzureCredential
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("voicerag")
@@ -21,7 +23,8 @@ async def create_app():
         logger.error("AZURE_OPENAI_API_KEY is not set")
         raise ValueError("AZURE_OPENAI_API_KEY is not set")
     
-    llm_credential = llm_key     
+    credential = DefaultAzureCredential()
+    llm_credential = AzureKeyCredential(llm_key) if llm_key else credential     
     app = web.Application()
 
     rtmt = RTMiddleTier(
