@@ -34,8 +34,9 @@ async def create_app():
         voice_choice=os.environ.get("AZURE_OPENAI_REALTIME_VOICE_CHOICE") or "alloy"
         )
     rtmt.system_message = """
-        You are a helpful assistant.Only Speak and answer questions based on information you searched in the knowledge base in ENGLISH, accessible with the 'search' tool. 
-        The user is listening to answers with audio, so it's *super* important that answers are as short as possible, a single sentence if at all possible. 
+        You are a helpful assistant.Only Speak and answer questions based on information you searched in the knowledge base in ENGLISH, accessible with the 'search' tool.
+        When using the 'search tool' use a detailed sentence of the information you want to find.
+        The user is listening to answers with audio, so it's *super* important that answers are as DETAILED as possible, never say just a single sentence if at all possible. 
         Never read file names or source names or keys out loud. 
         Always use the following step-by-step instructions to respond: 
         1. Always use the 'search' tool to check the knowledge base before answering a question. 
