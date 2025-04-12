@@ -68,6 +68,23 @@ Ensure you have the required software installed:
    npm run build
    ```
 
+## Docker Development Setup
+
+As an alternative to the manual setup above, you can use Docker for development:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t azure-law-bot -f app/Dockerfile .
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 8000:8000 --env-file app/backend/.env azure-law-bot
+   ```
+   The application will be available at http://localhost:8000
+
+Note: When using Docker, make sure your `.env` file is properly configured in the `app/backend` directory before building the image.
+
 ## Environment Variables Required
 The `.env` file in the backend directory should contain:
 - Azure credentials
