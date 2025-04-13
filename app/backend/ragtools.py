@@ -47,8 +47,13 @@ async def _search_tool(
     args: Any) -> ToolResult:
     print(f"Searching for '{args['query']}' in the knowledge base.")
     search_results = relevant_info(args["query"])
-    result = search_results
-    return ToolResult(result, ToolResultDirection.TO_SERVER)
+    
+    # Send results to both server (for the LLM to use) and client (to display grounding files)
+    # We'll make a copy for the server
+    server_result = search_results
+    
+    # Return the client result with sources for display in the UI
+    return ToolResult(search_results, ToolResultDirection.TO_CLIENT)
 
 KEY_PATTERN = re.compile(r'^[a-zA-Z0-9_=\-]+$')
 

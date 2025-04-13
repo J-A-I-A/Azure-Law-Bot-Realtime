@@ -17,6 +17,8 @@
     },
     "groundingFiles": {
         "title": "Grounding files",
-        "description": "Files used to ground the answers."
+        "description": "Files used to ground the answers.",
+        "collapse": "Collapse sources",
+        "expand": "Expand sources"
     }
 }

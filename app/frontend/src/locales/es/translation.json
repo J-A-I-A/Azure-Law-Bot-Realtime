@@ -16,6 +16,8 @@
     },
     "groundingFiles": {
         "title": "Archivos de fundamentación",
-        "description": "Archivos utilizados para fundamentar las respuestas."
+        "description": "Archivos utilizados para fundamentar las respuestas.",
+        "collapse": "Contraer fuentes",
+        "expand": "Expandir fuentes"
     }
 }

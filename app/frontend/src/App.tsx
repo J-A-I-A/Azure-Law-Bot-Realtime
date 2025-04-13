@@ -32,13 +32,26 @@ function App() {
             stopAudioPlayer();
         },
         onReceivedExtensionMiddleTierToolResponse: message => {
-            const result: ToolResult = JSON.parse(message.tool_result);
-
-            const files: GroundingFile[] = result.sources.map(x => {
-                return { id: x.chunk_id, name: x.title, content: x.chunk };
-            });
-
-            setGroundingFiles(prev => [...prev, ...files]);
+            console.log("Received tool response:", message);
+            
+            try {
+                const result: ToolResult = JSON.parse(message.tool_result);
+                console.log("Parsed tool result:", result);
+                
+                if (!result.sources || !Array.isArray(result.sources)) {
+                    console.error("Tool result does not have a valid sources array:", result);
+                    return;
+                }
+                
+                const files: GroundingFile[] = result.sources.map(x => {
+                    return { id: x.chunk_id, name: x.title, content: x.chunk };
+                });
+                
+                console.log("Created grounding files:", files);
+                setGroundingFiles(prev => [...prev, ...files]);
+            } catch (error) {
+                console.error("Error processing tool response:", error, message.tool_result);
+            }
         }
     });
 
