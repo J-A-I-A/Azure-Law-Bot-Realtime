@@ -1,5 +1,11 @@
 # Azure Law Bot - Real-time
 
+## Overview
+This application is a voice-enabled legal assistant that provides real-time responses using Azure AI services. It features:
+- Real-time voice-to-text and text-to-voice communication
+- Legal document searching and grounding responses in source documents
+- WebSocket-based communication for real-time interactions
+
 ## Prerequisites
 
 Ensure you have the required software installed:
@@ -25,8 +31,13 @@ Ensure you have the required software installed:
    ```
 
 3. Environment Variables:
-   - Obtain the `.env` file containing the necessary API keys
+   - Obtain the `.env` file containing the necessary API keys (Azure OpenAI API keys and endpoint URLs)
    - Place it in the `app/backend` directory
+   - Required environment variables include:
+     - AZURE_OPENAI_API_KEY
+     - AZURE_OPENAI_ENDPOINT
+     - AZURE_OPENAI_REALTIME_DEPLOYMENT
+     - AZURE_OPENAI_REALTIME_VOICE_CHOICE (optional, defaults to "alloy")
 
 4. Install Dependencies:
    ```bash
@@ -68,6 +79,11 @@ Ensure you have the required software installed:
    npm run build
    ```
 
+## API Endpoints
+
+- WebSocket: `/realtime` - Handles real-time audio communication and chat functionality
+- Static Files: `/` - Serves the frontend application
+
 ## Docker Development Setup
 
 As an alternative to the manual setup above, you can use Docker for development:
@@ -85,18 +101,23 @@ As an alternative to the manual setup above, you can use Docker for development:
 
 Note: When using Docker, make sure your `.env` file is properly configured in the `app/backend` directory before building the image.
 
-## Environment Variables Required
-The `.env` file in the backend directory should contain:
-- Azure credentials
-- Other necessary API keys and configurations
+## Key Features
+- Voice-based interaction with AI assistant
+- Real-time transcription of voice input
+- Audio playback of AI responses
+- Document grounding with source attribution
+- Interactive UI for viewing referenced documents
 
 ## Troubleshooting
 If you encounter any issues:
 1. Ensure all dependencies are installed correctly
-2. Verify the `.env` file is in the correct location
+2. Verify the `.env` file is in the correct location and contains all required keys
 3. Check that the `static` directory exists in the backend folder
 4. Make sure you're running the commands from the correct directory
 5. For frontend issues:
    - Clear your npm cache: `npm cache clean --force`
    - Delete `node_modules` and run `npm install` again
    - Make sure you're using the correct Node.js version
+6. For WebSocket connection issues:
+   - Check that the backend is running on port 8765
+   - Verify network connectivity between frontend and backend
