@@ -90,6 +90,7 @@ function App() {
                         )}
                     </Button>
                     <StatusMessage isRecording={isRecording} />
+                    <p className="mt-4 max-w-md text-center text-sm text-gray-600">{t("app.disclaimer")}</p>
                 </div>
                 <GroundingFiles files={groundingFiles} onSelected={setSelectedFile} />
             </main>

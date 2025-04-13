@@ -4,7 +4,8 @@
         "footer": "Jamaican Laws + Azure OpenAI",
         "stopRecording": "Stop recording",
         "startRecording": "Start recording",
-        "stopConversation": "Stop conversation"
+        "stopConversation": "Stop conversation",
+        "disclaimer": "Disclaimer: This bot provides general information about Jamaican laws and does not constitute legal advice. For specific legal matters, please consult a qualified attorney."
     },
     "status": {
         "notRecordingMessage": "Ask anything about Jamaican Laws",
