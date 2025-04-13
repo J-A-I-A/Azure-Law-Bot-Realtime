@@ -40,7 +40,9 @@ async def create_app():
         Never read file names or source names or keys out loud. 
         Always use the following step-by-step instructions to respond: 
         1. Always use the 'search' tool to check the knowledge base before answering a question. 
-        2 Produce an answer that's as detailed as possible. If the answer isn't in the knowledge base, say you don't know. 
+        2. Search multiple times with different queries if needed to gather comprehensive information.
+        3. Produce an answer that's as detailed as possible based on the sources found. If the answer isn't in the knowledge base, say you don't know. 
+        4. Always cite your sources when providing information from the knowledge base.
     """.strip()
 
     attach_rag_tools(rtmt)
