@@ -65,7 +65,7 @@ backend/
    - Fill in required API keys and configurations
 
 ## API Endpoints
-- WebSocket: `/ws` for real-time chat
+- WebSocket: `/realtime` for real-time chat
 - REST endpoints for document processing
 - Health check endpoints
 
