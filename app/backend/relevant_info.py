@@ -37,12 +37,18 @@ def relevant_info(question: str) -> json:
 
     ranked_documents = [{"id": r.document.id, "text": r.document.text} for r in ranked_response.data]
 
-    # Prepare the law content
-    law_content = [{"id": doc['id'], "text": doc['text']} for doc in ranked_documents]
+    # Format in the structure expected by the frontend
+    sources = [
+        {
+            "chunk_id": doc['id'], 
+            "title": f"Law Reference {i+1}", 
+            "chunk": doc['text']
+        } 
+        for i, doc in enumerate(ranked_documents)
+    ]
 
-    law_json = json.dumps(law_content, ensure_ascii=False)
-
-    return law_json
+    # Return the sources in the expected format for the frontend
+    return {"sources": sources}
 
 
 
